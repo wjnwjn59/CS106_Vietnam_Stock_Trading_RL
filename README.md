@@ -1,5 +1,5 @@
 # CS106: Vietnam Stock Trading
-[![tensorflow](https://img.shields.io/badge/tensorflow-2.0-orange)](https://github.com/tensorflow/tensorflow/tree/r2.0)
+[![Python](https://img.shields.io/badge/Python-3.6-blue)](https://www.python.org/downloads/)
 [![FinRL](https://img.shields.io/badge/FinRL-1.0-brightgreen)](https://github.com/AI4Finance-LLC/FinRL)
 
 # Description
