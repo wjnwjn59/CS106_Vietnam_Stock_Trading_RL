@@ -3,7 +3,7 @@
 [![FinRL](https://img.shields.io/badge/FinRL-1.0-brightgreen)](https://github.com/AI4Finance-LLC/FinRL)
 
 # Description
-This is our final project in VNU-UIT CS106 Course. This project is about applying reinforcement learning to make a prediction of any share price from the Vietnam Stock Market, and of course to advice us an action to best manage our P&L.
+This is our final project in VNU-UIT CS106 Course. This project is about applying deep reinforcement learning to make a prediction of any share price from the Vietnam Stock Market, and of course to advice us an action to best manage our P&L.
 
 <table style="width:100%">
   <tr>
