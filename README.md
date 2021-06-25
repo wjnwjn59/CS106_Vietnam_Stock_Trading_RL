@@ -7,7 +7,7 @@ This is our final project of HCMUIT CS106 Course. This project is about applying
 
 <table style="width:100%">
   <tr>
-    <th>STT</th>
+    <th>Number</th>
     <th>Full name</th>
     <th>MSSV</th>
     <th>Gmail</th>
