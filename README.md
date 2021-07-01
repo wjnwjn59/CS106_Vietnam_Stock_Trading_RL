@@ -31,3 +31,9 @@ This is our final project in VNU-UIT CS106 Course. This project is about applyin
     <th>19522179@gm.uit.edu.vn</th>
   </tr>
 </table>
+
+# Installation
+```
+pip install -r requirements.txt
+python libs/vnquant/setup.py install
+```
