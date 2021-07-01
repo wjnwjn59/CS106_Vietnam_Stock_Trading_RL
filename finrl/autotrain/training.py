@@ -15,6 +15,8 @@ from finrl.env.env_stocktrading import StockTradingEnv
 from finrl.model.models import DRLAgent
 from finrl.trade.backtest import backtest_stats, backtest_plot, get_daily_return, get_baseline
 
+import itertools
+
 
 
 def train_one():
@@ -37,9 +39,19 @@ def train_one():
 
     processed = fe.preprocess_data(df)
 
+    list_ticker = processed["tic"].unique().tolist()
+    list_date = list(pd.date_range(processed['date'].min(),processed['date'].max()).astype(str))
+    combination = list(itertools.product(list_date,list_ticker))
+
+    processed_full = pd.DataFrame(combination,columns=["date","tic"]).merge(processed,on=["date","tic"],how="left")
+    processed_full = processed_full[processed_full['date'].isin(processed['date'])]
+    processed_full = processed_full.sort_values(['date','tic'])
+
+    processed_full = processed_full.fillna(0)
+
     # Training & Trading data split
-    train = data_split(processed, config.START_DATE, config.START_TRADE_DATE)
-    trade = data_split(processed, config.START_TRADE_DATE, config.END_DATE)
+    train = data_split(processed_full, config.START_DATE, config.START_TRADE_DATE)
+    trade = data_split(processed_full, config.START_TRADE_DATE, config.END_DATE)
 
     # calculate state action space
     stock_dimension = len(train.tic.unique())
@@ -62,10 +74,7 @@ def train_one():
         }
 
     e_train_gym = StockTradingEnv(df=train, **env_kwargs)
-
-    e_trade_gym = StockTradingEnv(df=trade, turbulence_threshold=250, **env_kwargs)
     env_train, _ = e_train_gym.get_sb_env()
-    env_trade, obs_trade = e_trade_gym.get_sb_env()
 
     agent = DRLAgent(env=env_train)
 
@@ -78,8 +87,10 @@ def train_one():
     )
 
     print("==============Start Trading===========")
+    e_trade_gym = StockTradingEnv(df=trade, turbulence_threshold=250, **env_kwargs)
+
     df_account_value, df_actions = DRLAgent.DRL_prediction(
-        model=trained_sac, test_data=trade, test_env=env_trade, test_obs=obs_trade
+        model=trained_sac, environment = e_trade_gym
     )
     df_account_value.to_csv(
         "./" + config.RESULTS_DIR + "/df_account_value_" + now + ".csv"
@@ -87,6 +98,6 @@ def train_one():
     df_actions.to_csv("./" + config.RESULTS_DIR + "/df_actions_" + now + ".csv")
 
     print("==============Get Backtest Results===========")
-    perf_stats_all = BackTestStats(df_account_value)
+    perf_stats_all = backtest_stats(df_account_value)
     perf_stats_all = pd.DataFrame(perf_stats_all)
     perf_stats_all.to_csv("./" + config.RESULTS_DIR + "/perf_stats_all_" + now + ".csv")

@@ -143,6 +143,9 @@ class FeatureEngineer:
 
             cov_temp = filtered_hist_price.cov()
             current_temp = current_price[[x for x in filtered_hist_price]] - np.mean(filtered_hist_price, axis=0)
+            #cov_temp = hist_price.cov()
+            #current_temp=(current_price - np.mean(hist_price,axis=0))
+            
             temp = current_temp.values.dot(np.linalg.pinv(cov_temp)).dot(
                 current_temp.values.T
             )
