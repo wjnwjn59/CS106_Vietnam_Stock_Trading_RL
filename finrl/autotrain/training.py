@@ -157,10 +157,10 @@ def train_ensemble_agent():
     val_test_period = ['2015-10-01', '2016-01-01']
 
     # Processing data for ensemble agent
-    data = fe.add_turbulence(processed)
+
 
     env_kwargs = {
-        "df": data,
+        "df": processed_full,
         "train_period" : train_period,
         "val_test_period" : val_test_period,
         "rebalance_window" : 63,
