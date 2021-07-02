@@ -17,6 +17,8 @@ from finrl.model.models import DRLAgent
 from finrl.model.models import DRLEnsembleAgent
 from finrl.trade.backtest import backtest_stats, backtest_plot, get_daily_return, get_baseline
 
+from finrl.preprocessing.preprocessors import *
+
 import itertools
 
 
@@ -154,8 +156,11 @@ def train_ensemble_agent():
     train_period = ['2009-01-01', '2015-10-01']
     val_test_period = ['2015-10-01', '2016-01-01']
 
+    # Processing data for ensemble agent
+    data = fe.add_turbulence(processed)
+
     env_kwargs = {
-        "df": df,
+        "df": data,
         "train_period" : train_period,
         "val_test_period" : val_test_period,
         "rebalance_window" : 63,
