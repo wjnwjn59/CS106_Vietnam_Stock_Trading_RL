@@ -265,6 +265,9 @@ class DRLEnsembleAgent:
         iteration_list = []
 
         insample_turbulence = self.df[(self.df.date<self.train_period[1]) & (self.df.date>=self.train_period[0])]
+        print('\n--------------------------------')
+        print(insample_turbulence)
+        print('\n--------------------------------')
         insample_turbulence_threshold = np.quantile(insample_turbulence.turbulence.values, .90)
 
         start = time.time()
