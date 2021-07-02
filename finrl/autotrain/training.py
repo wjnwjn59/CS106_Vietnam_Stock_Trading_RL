@@ -185,6 +185,3 @@ def train_ensemble_agent():
     print("==============Model Training===========")
     now = datetime.datetime.now().strftime("%Y%m%d-%Hh%M")
     ensemble_model = ensembleAgent.run_ensemble_strategy(config.A2C_PARAMS, config.PPO_PARAMS, config.DDPG_PARAMS, timesteps_dict=timesteps_dict)
-
-    training_ensemble_agent = ensembleAgent.run_ensemble_strategy(
-                a2c_model, ppo_model, ddpg_model, timesteps_dict=100000)
