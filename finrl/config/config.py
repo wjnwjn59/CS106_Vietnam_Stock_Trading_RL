@@ -97,6 +97,72 @@ SRI_KEHATI_TICKER = [
 		"WTON.JK"
 ]
 
+# VN30 constituents at 2021/06
+VN_30_TICKER = [
+    "BID",
+    "BVH",
+    "CTG",
+    "FPT",
+    "GAS",
+    "HDB",
+    "HPG",
+    "KDH",
+    "MBB",
+    "MSN",
+    "MWG",
+    "NVL",
+    "PDR",
+    "PLX",
+    "PNJ",
+    "POW",
+    "REE",
+    "SBT",
+    "SSI",
+    "STB",
+    "TCB",
+    "VCB",
+    "VHM",
+    "VIC",
+    "VJC",
+    "VNM",
+    "VPB",
+    "VRE"
+]
+
+# HNX 30 constituents at 2021/06
+HNX_30_TICKER = [
+    "BVS",
+    "CAP",
+    "CEO",
+    "DDG",
+    "DHT",
+    "DP3",
+    "DTD",
+    "HUT",
+    "KLF",
+    "L14",
+    "LAS",
+    "LHC",
+    "MBS",
+    "NBC",
+    "NDN",
+    "NRC",
+    "NTP",
+    "NVB",
+    "PVB",
+    "PVC",
+    "PVS",
+    "SHB",
+    "SHS",
+    "SLS",
+    "THD",
+    "TNG",
+    "TVC",
+    "VC3",
+    "VCS",
+    "VMC"
+]
+
 # check https://wrds-www.wharton.upenn.edu/ for U.S. index constituents
 # Dow 30 constituents at 2019/01
 DOW_30_TICKER = [
