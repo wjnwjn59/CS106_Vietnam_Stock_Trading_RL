@@ -35,8 +35,8 @@ def main():
     if options.mode == "train":
         import finrl.autotrain.training
 
-        finrl.autotrain.training.train_one()
-        # finrl.autotrain.training.train_ensemble_agent()
+        # finrl.autotrain.training.train_one()
+        finrl.autotrain.training.train_ensemble_agent()
 
     elif options.mode == "download_data":
         from finrl.marketdata.yahoodownloader import YahooDownloader
