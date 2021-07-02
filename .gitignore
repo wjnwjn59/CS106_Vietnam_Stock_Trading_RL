@@ -136,3 +136,8 @@ dmypy.json
 
 #vscode
 *__pycache__
+
+# vnquant
+build
+dist
+vnquant.egg-info
