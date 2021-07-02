@@ -153,8 +153,8 @@ def train_ensemble_agent():
         + len(config.TECHNICAL_INDICATORS_LIST) * stock_dimension
     )
 
-    train_period = ['2009-01-01', '2015-10-01']
-    val_test_period = ['2015-10-01', '2016-01-01']
+    train_period = [config.START_DATE, config.START_TRADE_DATE]
+    val_test_period = [config.START_TRADE_DATE, config.END_DATE]
 
     # Processing data for ensemble agent
 
