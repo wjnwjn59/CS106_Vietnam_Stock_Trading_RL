@@ -9,6 +9,7 @@ import datetime
 
 from finrl.config import config
 from finrl.marketdata.yahoodownloader import YahooDownloader
+from finrl.marketdata.vnquantdownloader import vnquantDownloader
 from finrl.preprocessing.preprocessors import FeatureEngineer
 from finrl.preprocessing.data import data_split
 from finrl.env.env_stocktrading import StockTradingEnv
@@ -29,6 +30,12 @@ def train_one():
         end_date=config.END_DATE,
         ticker_list=config.DOW_30_TICKER,
     ).fetch_data()
+    ## Fetch data form VN30
+    #df = vnquantDownloader(
+    #   start_date=config.START_DATE,
+    #   end_date=config.END_DATE,
+    #   ticker_list=config.VN_30_TICKER,
+    #).fetch_data()
     print("==============Start Feature Engineering===========")
     fe = FeatureEngineer(
         use_technical_indicator=True,
