@@ -268,6 +268,7 @@ class DRLEnsembleAgent:
         insample_turbulence_threshold = np.quantile(insample_turbulence.turbulence.values, .90)
 
         start = time.time()
+        print(self.rebalance_window + self.validation_window, len(self.unique_trade_date), self.rebalance_window)
         for i in range(self.rebalance_window + self.validation_window, len(self.unique_trade_date), self.rebalance_window):
             validation_start_date = self.unique_trade_date[i - self.rebalance_window - self.validation_window]
             validation_end_date = self.unique_trade_date[i - self.rebalance_window]
