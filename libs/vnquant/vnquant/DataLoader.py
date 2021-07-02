@@ -35,11 +35,12 @@ class DataLoader():
 
         if self.minimal:
             # logging.info(stock_data)
+            # change to basic yahoodownloader format (thangdd)
             if str.lower(self.data_source) == 'vnd':
-                data = stock_data[['high','low','open','close', 'avg', 'volume']]
+                data = stock_data[['open', 'high', 'low', 'close', 'adjClose', 'volume']]
                 return data
             else:
-                data = stock_data[['high', 'low', 'open', 'close', 'adjust', 'volume']]
+                data = stock_data[['open', 'high', 'low', 'close', 'adjust', 'volume']]
                 return data
         else:
             return stock_data
@@ -89,7 +90,7 @@ class DataLoaderVND(DataLoadProto):
         data = pd.DataFrame(data)
         stock_data = data[['date', 'adClose', 'close', 'pctChange', 'average', 'nmVolume',
                         'nmValue', 'ptVolume', 'ptValue', 'open', 'high', 'low']].copy()
-        stock_data.columns = ['date', 'adjust', 'close', 'change_perc', 'avg',
+        stock_data.columns = ['date', 'adjClose', 'close', 'change_perc', 'avg',
                         'volume_match', 'value_match', 'volume_reconcile', 'value_reconcile',
                         'open', 'high', 'low']
 
@@ -101,9 +102,9 @@ class DataLoaderVND(DataLoadProto):
         stock_data['volume'] = stock_data.volume_match + stock_data.volume_reconcile
 
         # Create multiple columns
-        iterables = [stock_data.columns.tolist(), [symbol]]
-        mulindex = pd.MultiIndex.from_product(iterables, names=['Attributes', 'Symbols'])
-        stock_data.columns = mulindex
+        #iterables = [stock_data.columns.tolist(), [symbol]]
+        #mulindex = pd.MultiIndex.from_product(iterables, names=['Attributes', 'Symbols'])
+        #stock_data.columns = mulindex
 
         logging.info('data {} from {} to {} have already cloned!' \
                      .format(symbol,
@@ -129,9 +130,9 @@ class DataLoaderVND(DataLoadProto):
         stock_data['volume'] = stock_data.volume_match + stock_data.volume_reconcile
 
         # Create multiple columns
-        iterables = [stock_data.columns.tolist(), [symbol]]
-        mulindex = pd.MultiIndex.from_product(iterables, names=['Attributes', 'Symbols'])
-        stock_data.columns = mulindex
+        #iterables = [stock_data.columns.tolist(), [symbol]]
+        #mulindex = pd.MultiIndex.from_product(iterables, names=['Attributes', 'Symbols'])
+        #stock_data.columns = mulindex
 
         logging.info('data {} from {} to {} have already cloned!' \
                      .format(symbol,
