@@ -1,8 +1,10 @@
 # CS106: Vietnam Stock Trading
+
 [![Python](https://img.shields.io/badge/Python-3.6-blue)](https://www.python.org/downloads/)
 [![FinRL](https://img.shields.io/badge/FinRL-1.0-brightgreen)](https://github.com/AI4Finance-LLC/FinRL)
 
 # Description
+
 This is our final project in VNU-UIT CS106 Course. This project is about applying deep reinforcement learning to give advice about what to do (Selling, Holding, Buying) to best manage our portfolio P&L in the Vietnam Stock Market (VNI).
 
 <table style="width:100%">
@@ -33,6 +35,7 @@ This is our final project in VNU-UIT CS106 Course. This project is about applyin
 </table>
 
 # Installation
+
 ```
 pip install -r requirements.txt
 python libs/vnquant/setup.py install
