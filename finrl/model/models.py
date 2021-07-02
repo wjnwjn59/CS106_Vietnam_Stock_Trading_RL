@@ -290,25 +290,25 @@ class DRLEnsembleAgent:
             end_date_index = self.df.index[self.df["date"] == self.unique_trade_date[i - self.rebalance_window - self.validation_window]].to_list()[-1]
             start_date_index = end_date_index - 63 + 1
 
-            # historical_turbulence = self.df.iloc[start_date_index:(end_date_index + 1), :]
+            historical_turbulence = self.df.iloc[start_date_index:(end_date_index + 1), :]
 
-            # historical_turbulence = historical_turbulence.drop_duplicates(subset=['date'])
+            historical_turbulence = historical_turbulence.drop_duplicates(subset=['date'])
 
-            # historical_turbulence_mean = np.mean(historical_turbulence.turbulence.values)
+            historical_turbulence_mean = np.mean(historical_turbulence.turbulence.values)
 
-            # print(historical_turbulence_mean)
+            print(historical_turbulence_mean)
 
-            # if historical_turbulence_mean > insample_turbulence_threshold:
-            #     # if the mean of the historical data is greater than the 90% quantile of insample turbulence data
-            #     # then we assume that the current market is volatile,
-            #     # therefore we set the 90% quantile of insample turbulence data as the turbulence threshold
-            #     # meaning the current turbulence can't exceed the 90% quantile of insample turbulence data
-            #     turbulence_threshold = insample_turbulence_threshold
-            # else:
-            #     # if the mean of the historical data is less than the 90% quantile of insample turbulence data
-            #     # then we tune up the turbulence_threshold, meaning we lower the risk
-            #     turbulence_threshold = np.quantile(insample_turbulence.turbulence.values, 1)
-            # print("turbulence_threshold: ", turbulence_threshold)
+            if historical_turbulence_mean > insample_turbulence_threshold:
+                # if the mean of the historical data is greater than the 90% quantile of insample turbulence data
+                # then we assume that the current market is volatile,
+                # therefore we set the 90% quantile of insample turbulence data as the turbulence threshold
+                # meaning the current turbulence can't exceed the 90% quantile of insample turbulence data
+                turbulence_threshold = insample_turbulence_threshold
+            else:
+                # if the mean of the historical data is less than the 90% quantile of insample turbulence data
+                # then we tune up the turbulence_threshold, meaning we lower the risk
+                turbulence_threshold = np.quantile(insample_turbulence.turbulence.values, 1)
+            print("turbulence_threshold: ", turbulence_threshold)
 
             ############## Environment Setup starts ##############
             ## training env

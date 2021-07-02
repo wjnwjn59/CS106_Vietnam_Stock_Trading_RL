@@ -3,7 +3,7 @@ VNDirect
 """
 
 import pandas as pd
-import vnquant
+from libs.vnquant import vnquant
 
 
 class vnquantDownloader:
@@ -46,6 +46,8 @@ class vnquantDownloader:
         # Download and save the data in a pandas DataFrame:
         data_df = pd.DataFrame()
         for tic in self.ticker_list:
+            
+            # Error: module 'libs.vnquant.vnquant' has no attribute 'DataLoader'
             temp_df = vnquant.DataLoader.DataLoader(symbols=tic, start=self.start_date, end=self.end_date, minimal=True, data_source="vnd")
             temp_df["tic"] = tic
             data_df = data_df.append(temp_df)
