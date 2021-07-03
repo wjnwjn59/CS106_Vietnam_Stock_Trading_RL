@@ -35,6 +35,7 @@ def train_one():
         end_date=config.END_DATE,
         ticker_list=config.VN_30_TICKER,
     ).fetch_data()
+    
     print("==============Start Feature Engineering===========")
     fe = FeatureEngineer(
         use_technical_indicator=True,

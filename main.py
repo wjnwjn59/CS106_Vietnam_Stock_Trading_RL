@@ -35,17 +35,26 @@ def main():
     if options.mode == "train":
         import finrl.autotrain.training
 
-        # finrl.autotrain.training.train_one()
-        finrl.autotrain.training.train_ensemble_agent()
+        finrl.autotrain.training.train_one()
+        #finrl.autotrain.training.train_ensemble_agent()
 
     elif options.mode == "download_data":
-        from finrl.marketdata.yahoodownloader import YahooDownloader
+        # from finrl.marketdata.yahoodownloader import YahooDownloader
 
-        df = YahooDownloader(start_date=config.START_DATE,
-                             end_date=config.END_DATE,
-                             ticker_list=config.DOW_30_TICKER).fetch_data()
+        # df = YahooDownloader(start_date=config.START_DATE,
+        #                      end_date=config.END_DATE,
+        #                      ticker_list=config.DOW_30_TICKER).fetch_data()
+        # now = datetime.datetime.now().strftime("%Y%m%d-%Hh%M")
+        # df.to_csv("./" + config.DATA_SAVE_DIR + "/" + now + ".csv")
+
+        # Download command with vietnamese dataset
+        from finrl.marketdata.vnquantdownloader import vnquantDownloader
+        df = vnquantDownloader(start_date=config.START_DATE,
+                               end_date=config.END_DATE,
+                               ticker_list=config.VN_30_TICKER, ).fetch_data()
         now = datetime.datetime.now().strftime("%Y%m%d-%Hh%M")
         df.to_csv("./" + config.DATA_SAVE_DIR + "/" + now + ".csv")
+
 
         
         
