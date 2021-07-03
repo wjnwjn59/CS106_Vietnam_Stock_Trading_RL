@@ -449,12 +449,14 @@ class DRLEnsembleAgent:
             ############## Training and Validation ends ##############
 
             ############## Trading starts ##############
+            print("==============Start Trading===========")
             print("======Trading from: ", self.unique_trade_date[i - self.rebalance_window], "to ", self.unique_trade_date[i])
             #print("Used Model: ", model_ensemble)
             last_state_ensemble = self.DRL_prediction(model=model_ensemble, name="ensemble",
                                                      last_state=last_state_ensemble, iter_num=i,
                                                      turbulence_threshold = turbulence_threshold,
                                                      initial=initial)
+            print("==============End Trading===========")                                                     
             ############## Trading ends ##############
 
         end = time.time()

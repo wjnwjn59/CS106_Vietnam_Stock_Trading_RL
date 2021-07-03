@@ -190,3 +190,5 @@ def train_ensemble_agent():
     print("==============Model Training===========")
     now = datetime.datetime.now().strftime("%Y%m%d-%Hh%M")
     ensemble_model = ensembleAgent.run_ensemble_strategy(config.A2C_PARAMS, config.PPO_PARAMS, config.DDPG_PARAMS, timesteps_dict=timesteps_dict)
+    ensembleAgent.to_csv(
+        "./" + config.RESULTS_DIR + "/df_ensemble_summary" + now + ".csv")
