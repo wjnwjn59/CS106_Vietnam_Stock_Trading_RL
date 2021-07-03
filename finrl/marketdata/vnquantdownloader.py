@@ -3,8 +3,7 @@ VNDirect
 """
 
 import pandas as pd
-from libs.vnquant import vnquant
-
+import libs.vnquant.vnquant.DataLoader as crawler
 
 class vnquantDownloader:
     """Provides methods for retrieving daily stock data from
@@ -46,9 +45,8 @@ class vnquantDownloader:
         # Download and save the data in a pandas DataFrame:
         data_df = pd.DataFrame()
         for tic in self.ticker_list:
-            
-            # Error: module 'libs.vnquant.vnquant' has no attribute 'DataLoader'
-            temp_df = vnquant.DataLoader.DataLoader(symbols=tic, start=self.start_date, end=self.end_date, minimal=True, data_source="vnd")
+            loader = crawler.DataLoader(symbols=tic, start=self.start_date, end=self.end_date, minimal=True, data_source="vnd")
+            temp_df = loader.download()
             temp_df["tic"] = tic
             data_df = data_df.append(temp_df)
         # reset the index, we want to use numbers as index instead of dates

@@ -46,7 +46,8 @@ class YahooDownloader:
         # Download and save the data in a pandas DataFrame:
         data_df = pd.DataFrame()
         for tic in self.ticker_list:
-            temp_df = yf.download(tic, start=self.start_date, end=self.end_date)
+            temp_df = yf.download(
+                tic, start=self.start_date, end=self.end_date)
             temp_df["tic"] = tic
             data_df = data_df.append(temp_df)
         # reset the index, we want to use numbers as index instead of dates
@@ -79,7 +80,8 @@ class YahooDownloader:
         print("Shape of DataFrame: ", data_df.shape)
         # print("Display DataFrame: ", data_df.head())
 
-        data_df = data_df.sort_values(by=['date','tic']).reset_index(drop=True)
+        data_df = data_df.sort_values(
+            by=['date', 'tic']).reset_index(drop=True)
 
         return data_df
 
