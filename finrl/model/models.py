@@ -268,6 +268,7 @@ class DRLEnsembleAgent:
         insample_turbulence_threshold = np.quantile(insample_turbulence.turbulence.values, .90)
 
         start = time.time()
+        print(self.rebalance_window + self.validation_window, len(self.unique_trade_date), self.rebalance_window)
         for i in range(self.rebalance_window + self.validation_window, len(self.unique_trade_date), self.rebalance_window):
             validation_start_date = self.unique_trade_date[i - self.rebalance_window - self.validation_window]
             validation_end_date = self.unique_trade_date[i - self.rebalance_window]
@@ -448,12 +449,14 @@ class DRLEnsembleAgent:
             ############## Training and Validation ends ##############
 
             ############## Trading starts ##############
+            print("==============Start Trading===========")
             print("======Trading from: ", self.unique_trade_date[i - self.rebalance_window], "to ", self.unique_trade_date[i])
             #print("Used Model: ", model_ensemble)
             last_state_ensemble = self.DRL_prediction(model=model_ensemble, name="ensemble",
                                                      last_state=last_state_ensemble, iter_num=i,
                                                      turbulence_threshold = turbulence_threshold,
                                                      initial=initial)
+            print("==============End Trading===========")                                                     
             ############## Trading ends ##############
 
         end = time.time()

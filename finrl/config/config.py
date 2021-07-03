@@ -17,8 +17,8 @@ TRAINED_MODEL_DIR = f"trained_models"
 # DATASET_DIR = PACKAGE_ROOT / "data"
 
 # data
-# TRAINING_DATA_FILE = "data/ETF_SPY_2009_2020.csv"
-# TURBULENCE_DATA = "data/dow30_turbulence_index.csv"
+# TRAINING_DATA_FILE = "datasets/dow_30_2009_2020.csv"
+# TURBULENCE_DATA = "datasets/dow30_turbulence_index.csv"
 # TESTING_DATA_FILE = "test.csv"
 
 # now = datetime.datetime.now()
