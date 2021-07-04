@@ -8,6 +8,7 @@ import matplotlib.dates as mdates
 from copy import deepcopy
 
 from finrl.marketdata.yahoodownloader import YahooDownloader
+from finrl.marketdata.vnquantdownloader import vnquantDownloader
 from finrl.config import config
 
 
@@ -40,11 +41,12 @@ def backtest_stats(account_value, value_col_name="account_value"):
     return perf_stats_all
 
 
+# change "^DJI" to "VND" in baseline_ticker
 def backtest_plot(
     account_value,
     baseline_start=config.START_TRADE_DATE,
     baseline_end=config.END_DATE,
-    baseline_ticker="^DJI",
+    baseline_ticker="VND",
     value_col_name="account_value",
 ):
 
@@ -63,7 +65,8 @@ def backtest_plot(
 
 
 def get_baseline(ticker, start, end):
-    dji = YahooDownloader(
+    # temporarily change to vnquantDownloader for testing
+    dji = vnquantDownloader(
         start_date=start, end_date=end, ticker_list=[ticker]
     ).fetch_data()
     return dji
