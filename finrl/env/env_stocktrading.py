@@ -88,7 +88,7 @@ class StockTradingEnv(gym.Env):
                     sell_num_shares = min(abs(action),self.state[index+self.stock_dim+1])
 
                     # round up to hundred - amounts in accordance with vietnam stock buy/sell regulation
-                    sell_num_shares = int(math.floor(sell_num_shares / 100.0) * 100 if sell_num_shares % 100.0 <= 50 else int(math.ceil(sell_num_shares / 100.0) * 100))
+                    sell_num_shares = int(math.floor(sell_num_shares / 100.0)) * 100 if sell_num_shares % 100.0 <= 50 else int(math.ceil(sell_num_shares / 100.0) * 100)
 
                     # if number of to-sell shares is round up to 0, then this is a hold action
                     if sell_num_shares == 0:
@@ -119,7 +119,7 @@ class StockTradingEnv(gym.Env):
                         sell_num_shares = self.state[index+self.stock_dim+1]
 
                         # round up to hundred - amounts in accordance with vietnam stock buy/sell regulation
-                        sell_num_shares = int(math.floor(sell_num_shares / 100.0) * 100 if sell_num_shares % 100.0 <= 50 else int(math.ceil(sell_num_shares / 100.0) * 100))
+                        sell_num_shares = int(math.floor(sell_num_shares / 100.0) * 100) if sell_num_shares % 100.0 <= 50 else int(math.ceil(sell_num_shares / 100.0) * 100)
 
                         # if number of to-sell shares is round up to 0, then this is a hold action
                         if sell_num_shares == 0:
@@ -156,7 +156,7 @@ class StockTradingEnv(gym.Env):
                 buy_num_shares = min(available_amount, action)
                 
                 # round up to hundred - amounts in accordance with vietnam stock buy/sell regulation
-                buy_num_shares = int(math.floor(buy_num_shares / 100.0) * 100 if buy_num_shares % 100.0 <= 50 else int(math.ceil(buy_num_shares / 100.0) * 100))
+                buy_num_shares = int(math.floor(buy_num_shares / 100.0) * 100) if buy_num_shares % 100.0 <= 50 else int(math.ceil(buy_num_shares / 100.0) * 100)
                 
                 # if number of to-buy shares is round up to 0, then this is a hold action
                 if buy_num_shares == 0:
