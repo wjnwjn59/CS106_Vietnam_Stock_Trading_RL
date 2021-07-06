@@ -49,11 +49,24 @@ def main():
 
         # Download command with vietnamese dataset
         from finrl.marketdata.vnquantdownloader import vnquantDownloader
+        from finrl.preprocessing.preprocessors import FeatureEngineer
+
         df = vnquantDownloader(start_date=config.START_DATE,
                                end_date=config.END_DATE,
                                ticker_list=config.VN_30_TICKER, ).fetch_data()
+
+        fe = FeatureEngineer(
+                        use_technical_indicator=True,
+                        tech_indicator_list=config.TECHNICAL_INDICATORS_LIST,
+                        use_turbulence=True,
+                        user_defined_feature=False,
+        )
+
+        processed = fe.preprocess_data(df)
+
+
         now = datetime.datetime.now().strftime("%Y%m%d-%Hh%M")
-        df.to_csv("./" + config.DATA_SAVE_DIR + "/" + now + ".csv")
+        processed.to_csv("./" + config.DATA_SAVE_DIR + "/" + now + ".csv")
 
 
         
