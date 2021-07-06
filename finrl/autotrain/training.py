@@ -74,10 +74,10 @@ def train_one():
     )
 
     env_kwargs = {
-        "hmax": 100,
-        "initial_amount": 1000000,
-        "buy_cost_pct": 0.001,
-        "sell_cost_pct": 0.001,
+        "hmax": 500000,
+        "initial_amount": 100000000,
+        "buy_cost_pct": 0.0015,
+        "sell_cost_pct": 0.0015,
         "state_space": state_space,
         "stock_dim": stock_dimension,
         "tech_indicator_list": config.TECHNICAL_INDICATORS_LIST,
@@ -93,9 +93,9 @@ def train_one():
     print("==============Model Training===========")
     now = datetime.datetime.now().strftime("%Y%m%d-%Hh%M")
 
-    model_sac = agent.get_model("sac")
+    model_sac = agent.get_model("a2c")
     trained_sac = agent.train_model(
-        model=model_sac, tb_log_name="sac", total_timesteps=80000
+        model=model_sac, tb_log_name="a2c", total_timesteps=80000
     )
 
     print("==============Start Trading===========")
@@ -175,10 +175,10 @@ def train_ensemble_agent():
         "rebalance_window": 63,
         "validation_window": 63,
         "stock_dim": stock_dimension,
-        "hmax": 100,
-        "initial_amount": 1000000,
-        "buy_cost_pct": 0.001,
-        "sell_cost_pct": 0.001,
+        "hmax": 500000,
+        "initial_amount": 100000000,
+        "buy_cost_pct": 0.0015,
+        "sell_cost_pct": 0.0015,
         "reward_scaling": 1e-4,
         "state_space": state_space,
         "action_space": stock_dimension,
