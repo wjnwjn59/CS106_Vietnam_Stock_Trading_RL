@@ -46,7 +46,7 @@ def backtest_plot(
     account_value,
     baseline_start=config.START_TRADE_DATE,
     baseline_end=config.END_DATE,
-    baseline_ticker="VND",
+    baseline_ticker=config.VN_30_TICKER,
     value_col_name="account_value",
 ):
 
@@ -67,7 +67,7 @@ def backtest_plot(
 def get_baseline(ticker, start, end):
     # temporarily change to vnquantDownloader for testing
     dji = vnquantDownloader(
-        start_date=start, end_date=end, ticker_list=[ticker]
+        start_date=start, end_date=end, ticker_list=ticker
     ).fetch_data()
     return dji
 
