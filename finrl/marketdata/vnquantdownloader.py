@@ -77,7 +77,6 @@ class vnquantDownloader:
         data_df = data_df.dropna()
         data_df = data_df.reset_index(drop=True)
         print("Shape of DataFrame: ", data_df.shape)
-        print("Done")
         # print("Display DataFrame: ", data_df.head())
 
         data_df = data_df.sort_values(by=['date','tic']).reset_index(drop=True)
