@@ -20,7 +20,7 @@ setup(
     include_package_data=True,
     author="Hongyang Yang, Xiaoyang Liu",
     author_email="hy2500@columbia.edu",
-    url="https://github.com/finrl/finrl-library",
+    url="https://github.com/ThangDuong59/CS106-Vietnam-Stock-Trading.git",
     license="MIT",
     packages=find_packages(),
     #install_requires=REQUIRES,
