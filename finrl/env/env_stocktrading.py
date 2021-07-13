@@ -230,12 +230,12 @@ class StockTradingEnv(gym.Env):
                 plt.savefig('results/account_value_{}_{}_{}.png'.format(self.mode,self.model_name, self.iteration),index=False)
                 plt.close()
 
-            # Add outputs to logger interface
-            logger.record("environment/portfolio_value", end_total_asset)
-            logger.record("environment/total_reward", tot_reward)
-            logger.record("environment/total_reward_pct", (tot_reward / (end_total_asset - tot_reward)) * 100)
-            logger.record("environment/total_cost", self.cost)
-            logger.record("environment/total_trades", self.trades)
+                # # Add outputs to logger interface
+                # logger.record("environment/portfolio_value", end_total_asset)
+                # logger.record("environment/total_reward", tot_reward)
+                # logger.record("environment/total_reward_pct", (tot_reward / (end_total_asset - tot_reward)) * 100)
+                # logger.record("environment/total_cost", self.cost)
+                # logger.record("environment/total_trades", self.trades)
 
             return self.state, self.reward, self.terminal, {}
 
