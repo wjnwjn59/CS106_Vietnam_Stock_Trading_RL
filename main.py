@@ -39,21 +39,34 @@ def main():
         #finrl.autotrain.training.train_ensemble_agent()
 
     elif options.mode == "download_data":
-        # from finrl.marketdata.yahoodownloader import YahooDownloader
+        from finrl.marketdata.yahoodownloader import YahooDownloader
 
-        # df = YahooDownloader(start_date=config.START_DATE,
-        #                      end_date=config.END_DATE,
-        #                      ticker_list=config.DOW_30_TICKER).fetch_data()
-        # now = datetime.datetime.now().strftime("%Y%m%d-%Hh%M")
-        # df.to_csv("./" + config.DATA_SAVE_DIR + "/" + now + ".csv")
+        df = YahooDownloader(start_date=config.START_DATE,
+                             end_date=config.END_DATE,
+                             ticker_list=config.DOW_30_TICKER).fetch_data()
+        now = datetime.datetime.now().strftime("%Y%m%d-%Hh%M")
+        df.to_csv("./" + config.DATA_SAVE_DIR + "/" + now + ".csv")
 
         # Download command with vietnamese dataset
         from finrl.marketdata.vnquantdownloader import vnquantDownloader
-        df = vnquantDownloader(start_date=config.START_DATE,
-                               end_date=config.END_DATE,
-                               ticker_list=config.VN_30_TICKER, ).fetch_data()
+        from finrl.preprocessing.preprocessors import FeatureEngineer
+
+        # df = vnquantDownloader(start_date=config.START_DATE,
+        #                        end_date=config.END_DATE,
+        #                        ticker_list=config.VN_30_TICKER, ).fetch_data()
+
+        fe = FeatureEngineer(
+                        use_technical_indicator=True,
+                        tech_indicator_list=config.TECHNICAL_INDICATORS_LIST,
+                        use_turbulence=True,
+                        user_defined_feature=False,
+        )
+
+        processed = fe.preprocess_data(df)
+
+
         now = datetime.datetime.now().strftime("%Y%m%d-%Hh%M")
-        df.to_csv("./" + config.DATA_SAVE_DIR + "/" + now + ".csv")
+        processed.to_csv("./" + config.DATA_SAVE_DIR + "/" + now + ".csv")
 
 
         
