@@ -26,7 +26,7 @@ setup(
     #install_requires=REQUIRES,
     install_requires=REQUIRES
     + ["pyfolio @ git+https://github.com/quantopian/pyfolio.git#egg=pyfolio-0.9.2", 
-            "vnquant @ git+https://github.com/ThangDuong59/CS106-Vietnam-Stock-Trading.git#egg=CS106-Vietnam-Stock-Trading&subdirectory=libs/vnquant"],
+            "vnquant @ git+https://github.com/ThangDuong59/vnquant#egg=vnquant"],
     # dependency_links=['git+https://github.com/quantopian/pyfolio.git#egg=pyfolio-0.9.2'],
     description="FinRL library, a Deep Reinforcement Learning library designed specifically for automated stock trading.",
     long_description="""finrl is a Python library for that facilitates beginners to expose themselves to quantitative finance 
