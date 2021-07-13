@@ -4,6 +4,7 @@ import pickle
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
+import math
 from gym.utils import seeding
 import gym
 from gym import spaces
@@ -84,10 +85,16 @@ class StockTradingEnv(gym.Env):
                 # perform sell action based on the sign of the action
                 if self.state[index+self.stock_dim+1] > 0:
                     # Sell only if current asset is > 0
-                    sell_num_shares = min(
-                        abs(action), self.state[index+self.stock_dim+1])
-                    sell_amount = self.state[index+1] * \
-                        sell_num_shares * (1 - self.sell_cost_pct)
+                    sell_num_shares = min(abs(action),self.state[index+self.stock_dim+1])
+
+                    # round up to hundred - amounts in accordance with vietnam stock buy/sell regulation
+                    sell_num_shares = int(math.floor(sell_num_shares / 100.0)) * 100 if sell_num_shares % 100.0 <= 50 else int(math.ceil(sell_num_shares / 100.0) * 100)
+
+                    # if number of to-sell shares is round up to 0, then this is a hold action
+                    if sell_num_shares == 0:
+                        return sell_num_shares
+
+                    sell_amount = self.state[index+1] * sell_num_shares * (1- self.sell_cost_pct)
                     #update balance
                     self.state[0] += sell_amount
 
@@ -111,8 +118,15 @@ class StockTradingEnv(gym.Env):
                     if self.state[index+self.stock_dim+1] > 0:
                         # Sell only if current asset is > 0
                         sell_num_shares = self.state[index+self.stock_dim+1]
-                        sell_amount = self.state[index+1] * \
-                            sell_num_shares * (1 - self.sell_cost_pct)
+
+                        # round up to hundred - amounts in accordance with vietnam stock buy/sell regulation
+                        sell_num_shares = int(math.floor(sell_num_shares / 100.0) * 100) if sell_num_shares % 100.0 <= 50 else int(math.ceil(sell_num_shares / 100.0) * 100)
+
+                        # if number of to-sell shares is round up to 0, then this is a hold action
+                        if sell_num_shares == 0:
+                            return sell_num_shares
+
+                        sell_amount = self.state[index+1]*sell_num_shares* (1- self.sell_cost_pct)
                         #update balance
                         self.state[0] += sell_amount
                         self.state[index+self.stock_dim+1] = 0
@@ -140,8 +154,15 @@ class StockTradingEnv(gym.Env):
 
                 #update balance
                 buy_num_shares = min(available_amount, action)
-                buy_amount = self.state[index+1] * \
-                    buy_num_shares * (1 + self.buy_cost_pct)
+                
+                # round up to hundred - amounts in accordance with vietnam stock buy/sell regulation
+                buy_num_shares = int(math.floor(buy_num_shares / 100.0) * 100) if buy_num_shares % 100.0 <= 50 else int(math.ceil(buy_num_shares / 100.0) * 100)
+                
+                # if number of to-buy shares is round up to 0, then this is a hold action
+                if buy_num_shares == 0:
+                        return buy_num_shares
+                
+                buy_amount = self.state[index+1] * buy_num_shares * (1+ self.buy_cost_pct)
                 self.state[0] -= buy_amount
 
                 self.state[index+self.stock_dim+1] += buy_num_shares
