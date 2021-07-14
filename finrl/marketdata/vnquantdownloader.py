@@ -80,6 +80,7 @@ class vnquantDownloader:
         # print("Display DataFrame: ", data_df.head())
 
         data_df = data_df.sort_values(by=['date','tic']).reset_index(drop=True)
+        data_df[["open", "high", "low", "close"]] = data_df[["open", "high", "low", "close"]].multiply(1000, axis="index")
 
         return data_df
 
