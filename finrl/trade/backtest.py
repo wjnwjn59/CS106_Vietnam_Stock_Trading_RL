@@ -41,12 +41,12 @@ def backtest_stats(account_value, value_col_name="account_value"):
     return perf_stats_all
 
 
-# change "^DJI" to "VND" in baseline_ticker
+# change "^DJI" to "VNM" in baseline_ticker
 def backtest_plot(
     account_value,
     baseline_start=config.START_TRADE_DATE,
     baseline_end=config.END_DATE,
-    baseline_ticker="VND",
+    baseline_ticker="VNM",
     value_col_name="account_value",
 ):
 
