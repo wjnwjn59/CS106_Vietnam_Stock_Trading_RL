@@ -39,7 +39,7 @@ This is our final project in VNU-UIT CS106 Course. This project is about applyin
 # Instruction
 We highly recommend you to use our provided notebooks in the notebooks folder. Those notebooks have hands-on instructions and explanation for each modules to run the entire system, from download data, training model to trading with the model. If you don't want to use the notebooks, please follow the below instructions: 
 ## Requirements
-We recommend you to use Anaconda before downloading these required packages. If you don't use Anaconda, please ignore the following commands:
+We recommend you to use Anaconda before installing these required packages. If you don't use Anaconda, please ignore the following commands:
 ```
 conda create -n finrl -y
 conda activate finrl
