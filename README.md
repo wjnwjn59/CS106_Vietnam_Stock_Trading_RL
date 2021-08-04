@@ -2,7 +2,7 @@
 
 [![Python](https://img.shields.io/badge/Python-3.6-blue)](https://www.python.org/downloads/)
 [![FinRL](https://img.shields.io/badge/FinRL-1.0-brightgreen)](https://github.com/AI4Finance-LLC/FinRL)
-[![Open In Colab](https://colab.research.google.com/drive/11DEVFMoA3f9--xQrYhH8On2gZstXB5r3?usp=sharing/)
+[![Open In Collab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/11DEVFMoA3f9--xQrYhH8On2gZstXB5r3?usp=sharing)
 
 # Description
 
@@ -36,7 +36,7 @@ This is our final project in VNU-UIT CS106 Course. This project is about applyin
 </table>
 
 # Installation
-First, we highly recommend you to use our provided notebooks in the notebooks folder. Those notebooks have hands-on instructions and explanation for each modules to run the entire system, from download data to training model. If you don't want to use the notebooks, please follow the below instructions: 
+First, we highly recommend you to use our provided notebooks in the notebooks folder. Those notebooks have hands-on instructions and explanation for each modules to run the entire system, from download data, training model to trading with the model. If you don't want to use the notebooks, please follow the below instructions: 
 
 We recommend you to use Anaconda before downloading these required packages:
 ```
