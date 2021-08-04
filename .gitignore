@@ -130,7 +130,6 @@ dmypy.json
 .idea
 
 *events.out.tfevents.*
-*.csv
 *.zip
 *.png
 
