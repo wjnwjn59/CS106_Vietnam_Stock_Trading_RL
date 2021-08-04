@@ -3,7 +3,7 @@ VNDirect
 """
 
 import pandas as pd
-import libs.vnquant.vnquant.DataLoader as crawler
+import vnquant.DataLoader as crawler
 
 class vnquantDownloader:
     """Provides methods for retrieving daily stock data from
