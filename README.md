@@ -2,6 +2,7 @@
 
 [![Python](https://img.shields.io/badge/Python-3.6-blue)](https://www.python.org/downloads/)
 [![FinRL](https://img.shields.io/badge/FinRL-1.0-brightgreen)](https://github.com/AI4Finance-LLC/FinRL)
+[![Open In Colab](https://colab.research.google.com/drive/11DEVFMoA3f9--xQrYhH8On2gZstXB5r3?usp=sharing/)
 
 # Description
 
@@ -35,8 +36,25 @@ This is our final project in VNU-UIT CS106 Course. This project is about applyin
 </table>
 
 # Installation
+First, we highly recommend you to use our provided notebooks in the notebooks folder. Those notebooks have hands-on instructions and explanation for each modules to run the entire system, from download data to training model. If you don't want to use the notebooks, please follow the below instructions: 
 
+We recommend you to use Anaconda before downloading these required packages:
+```
+conda create -n finrl -y
+conda activate finrl
+```
+After that, install the fundamental packages in requirements.txt:
 ```
 pip install -r requirements.txt
-python libs/vnquant/setup.py install
 ```
+Finally, install the modified vnquant library:
+```
+cd libs/vnquant
+python setup.py install
+```
+# Training
+To start training, run the command below:
+```
+python main.py --mode=train
+```
+The training results will appear in the results folder after the training process complete (you can see an example results in the our_results folder).
