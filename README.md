@@ -24,15 +24,15 @@ This is our final project in VNU-UIT CS106 Course. This project is about applyin
   </tr>
   <tr>
     <th>2</th>
-    <th>Hoàng Ngọc Bá Thi</th>
-    <th>19522255</th>
-    <th>19522255@gm.uit.edu.vn</th>
-  </tr>
-  <tr>
-    <th>3</th>
     <th>Trịnh Nhật Tân</th>
     <th>19522179</th>
     <th>19522179@gm.uit.edu.vn</th>
+  </tr>
+   <tr>
+    <th>3</th>
+    <th>Hoàng Ngọc Bá Thi</th>
+    <th>19522255</th>
+    <th>19522255@gm.uit.edu.vn</th>
   </tr>
 </table>
 
