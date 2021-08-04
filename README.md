@@ -58,6 +58,8 @@ To start training, run the command below:
 ```
 python main.py --mode=train
 ```
+By default, the training agorithm set in the script is SAC. There are other supported algorithms (A2C, PPO, DDPG, TD3) which you can try training with them by changing the name of the model in the Model Training part in training.py.
+
 The training results will appear in the results folder after the training process complete (you can see example results in the experiment_logs folder).
 # Acknowledgements
 - [FinRL](https://github.com/AI4Finance-LLC/FinRL)
