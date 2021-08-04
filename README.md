@@ -60,7 +60,7 @@ python main.py --mode=train
 ```
 By default, the training algorithm set in the script is SAC and it is in multistock training mode (train with 30 stocks from the 6-2021 VN30).
 - There are other supported algorithms (A2C, PPO, DDPG, TD3) which you can try training with them by changing the name of the model in the Model Training part in training.py.
-- If you want to train on other stocks, please refer to config.py to change the code of the stock (tickers).
+- If you want to train on other stocks, please refer to config.py to change the code of the stock (ticker).
 
 The training results will appear in the results folder after the training process is completed (you can see example results in the experiment_logs folder).
 # Acknowledgements
