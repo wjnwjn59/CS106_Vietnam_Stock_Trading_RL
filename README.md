@@ -7,7 +7,7 @@
 
 # Description
 
-This is our final project in VNU-UIT CS106 Course. This project is about applying deep reinforcement learning to give advice about what to do (Selling, Holding, Buying) to best manage our portfolio P&L in the Vietnam Stock Market (VNINDEX).
+This is our final project in VNU-UIT CS106 Course. This project is about applying deep reinforcement learning to give advice about what to do (Selling, Holding, Buying) to best manage the account portfolio P&L in the Vietnam Stock Market (VNINDEX).
 
 <table style="width:100%">
   <tr>
