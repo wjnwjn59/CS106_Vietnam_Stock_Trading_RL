@@ -24,17 +24,17 @@ def train_one():
     train an agent
     """
     print("==============Start Fetching Data===========")
-    df = YahooDownloader(
-       start_date=config.START_DATE,
-       end_date=config.END_DATE,
-       ticker_list=config.DOW_30_TICKER,
-    ).fetch_data()
-    ## Fetch data form VN30
-    # df = vnquantDownloader(
-    #     start_date=config.START_DATE,
-    #     end_date=config.END_DATE,
-    #     ticker_list=config.VN_30_TICKER,
+    # df = YahooDownloader(
+    #    start_date=config.START_DATE,
+    #    end_date=config.END_DATE,
+    #    ticker_list=config.DOW_30_TICKER,
     # ).fetch_data()
+    ## Fetch data form VN30
+    df = vnquantDownloader(
+        start_date=config.START_DATE,
+        end_date=config.END_DATE,
+        ticker_list=config.VN_30_TICKER,
+    ).fetch_data()
     
     print("==============Start Feature Engineering===========")
     fe = FeatureEngineer(
