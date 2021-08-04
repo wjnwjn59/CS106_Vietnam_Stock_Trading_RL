@@ -12,7 +12,7 @@ This is our final project in VNU-UIT CS106 Course. This project is about applyin
   <tr>
     <th>Number</th>
     <th>Full name</th>
-    <th>MSSV</th>
+    <th>Student ID</th>
     <th>Gmail</th>
   </tr>
   <tr>
