@@ -2,6 +2,7 @@
 
 [![Python](https://img.shields.io/badge/Python-3.6-blue)](https://www.python.org/downloads/)
 [![FinRL](https://img.shields.io/badge/FinRL-1.0-brightgreen)](https://github.com/AI4Finance-LLC/FinRL)
+[![vnquant](https://img.shields.io/badge/vnquant-0.0.2-yellow)](https://github.com/phamdinhkhanh/vnquant)]
 [![Open In Collab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/11DEVFMoA3f9--xQrYhH8On2gZstXB5r3?usp=sharing)
 
 # Description
