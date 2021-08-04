@@ -58,7 +58,7 @@ To start training, run the command below:
 ```
 python main.py --mode=train
 ```
-The training results will appear in the results folder after the training process complete (you can see an example results in the our_results folder).
+The training results will appear in the results folder after the training process complete (you can see example results in the experiment_logs folder).
 # Acknowledgements
 - [FinRL](https://github.com/AI4Finance-LLC/FinRL)
 - [vnquant](https://github.com/phamdinhkhanh/vnquant)
