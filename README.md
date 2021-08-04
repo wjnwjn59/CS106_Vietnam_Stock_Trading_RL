@@ -7,7 +7,7 @@
 
 # Description
 
-This is our final project in VNU-UIT CS106 Course. This project is about applying deep reinforcement learning to give advice about what to do (Selling, Holding, Buying) to best manage our portfolio P&L in the Vietnam Stock Market (VNI).
+This is our final project in VNU-UIT CS106 Course. This project is about applying deep reinforcement learning to give advice about what to do (Selling, Holding, Buying) to best manage our portfolio P&L in the Vietnam Stock Market (VNINDEX).
 
 <table style="width:100%">
   <tr>
@@ -58,7 +58,9 @@ To start training, run the command below:
 ```
 python main.py --mode=train
 ```
-By default, the training algorithm set in the script is SAC. There are other supported algorithms (A2C, PPO, DDPG, TD3) which you can try training with them by changing the name of the model in the Model Training part in training.py.
+By default, the training algorithm set in the script is SAC and it is in multistock training (with 30 stocks from the 6-2021 VN30).
+. There are other supported algorithms (A2C, PPO, DDPG, TD3) which you can try training with them by changing the name of the model in the Model Training part in training.py.
+. If you want to train on other stocks, please refer to config.py to change the code of the stock (tickers).
 
 The training results will appear in the results folder after the training process is completed (you can see example results in the experiment_logs folder).
 # Acknowledgements
