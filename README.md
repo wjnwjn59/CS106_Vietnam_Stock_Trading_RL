@@ -36,10 +36,10 @@ This is our final project in VNU-UIT CS106 Course. This project is about applyin
   </tr>
 </table>
 
-# Installation
+# Instruction
 First, we highly recommend you to use our provided notebooks in the notebooks folder. Those notebooks have hands-on instructions and explanation for each modules to run the entire system, from download data, training model to trading with the model. If you don't want to use the notebooks, please follow the below instructions: 
-
-We recommend you to use Anaconda before downloading these required packages:
+## Requirements
+We recommend you to use Anaconda before downloading these required packages. If you don't use Anaconda, please ignore the following commands:
 ```
 conda create -n finrl -y
 conda activate finrl
@@ -59,3 +59,6 @@ To start training, run the command below:
 python main.py --mode=train
 ```
 The training results will appear in the results folder after the training process complete (you can see an example results in the our_results folder).
+# Acknowledgements
+- [FinRL](https://github.com/AI4Finance-LLC/FinRL)
+- [vnquant](https://github.com/phamdinhkhanh/vnquant)
